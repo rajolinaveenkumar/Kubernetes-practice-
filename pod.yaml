@@ -36,3 +36,18 @@ spec:
     limits:
       cpu: "120Mi"
       memory: "120m"
+
+---
+
+apiVersion: apps/v1
+kind: Service
+spec:
+  type: LoadBalancer
+  selector:
+    project: redbus
+    environmet: prod
+  ports:
+  - protocol: TCP
+    port: 80 # cluster port
+    targetPort: 80 # conatiner port
+    nodePort: 30500

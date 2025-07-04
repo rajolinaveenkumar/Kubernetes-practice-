@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+  labels:
+    project: redbus
+    environmet: prod
+  annotations:
+    purpose: "testing the environmet"
+    changenumber: CHGOOO8756
+
+spec:
+  containers:
+  - name: c1
+    image: nginx
+    ports:
+    - containerPort: 80
+    envFrom:
+    - configMap:
+      name: my-configmap
+    - secretRef:
+      name: my-secrets
+
+  - name: c2
+    image: alamalinux:9
+    command: ["sleep", "200"]
+    envFrom:
+    - secretRef:
+      name: my-secrets
+
+  resources:
+    request:
+      cpu: "60Mi"
+      memory: "100m"
+    limit:
+      cpu: "120Mi"
+      memory: "120m"
+
+---

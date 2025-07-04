@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap 
+
+data:
+  name: naveen-rajoli
+  location: india
+  phn: 00000000

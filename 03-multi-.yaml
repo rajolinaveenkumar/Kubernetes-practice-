@@ -12,7 +12,8 @@ spec:
     ports:
     - containerPort: 80
   - name: apache-container
-    image: httpd
+    image: almalinux:9
+    command: ["sleep", "200"]
     env:
     - name: project
       value: expense

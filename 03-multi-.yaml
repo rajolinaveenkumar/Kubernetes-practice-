@@ -24,7 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-svc 
+  name: my-svc
+  labels:
+    project: expense
+    env: prod 
 spec:
   selector:
     project: expense

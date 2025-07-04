@@ -18,3 +18,17 @@ spec:
       value: expense
     - name: environment
       value: dev
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-svc 
+spec:
+  selector:
+    project: expense
+    env: prod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

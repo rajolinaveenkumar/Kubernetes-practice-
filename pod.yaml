@@ -41,6 +41,9 @@ spec:
 
 apiVersion: apps/v1
 kind: Service
+metadata:
+  name: my-lb
+  namespace: prod-ns
 spec:
   type: LoadBalancer
   selector:

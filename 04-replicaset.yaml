@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-replica
+  labels:
+    component: web
+    project: expense
+
+spec:
+  replicas: 3
+  selector:
+    component: web
+    project: expense
+  template:
+    metadata:
+      name: replica-pod
+      labels:
+        component: web
+        project: expense
+        connection: connect-lb-service
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: my-lb
+spec:
+  type: LoadBalancer
+  selector:
+    connection: connect-lb-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 31800

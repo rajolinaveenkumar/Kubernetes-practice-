@@ -22,12 +22,12 @@ spec:
     - secretRef:
         name: my-secrets
 
-  - name: c2
-    image: almalinux:9
-    command: ["sleep", "200"]
-    envFrom:
-    - secretRef:
-        name: my-secrets
+  # - name: c2
+  #   image: almalinux:9
+  #   command: ["sleep", "200"]
+  #   envFrom:
+  #   - secretRef:
+  #       name: my-secrets
 
   resources:
     requests:

@@ -6,7 +6,7 @@ metadata:
     component: web
     project: expense
   annotations:
-    kubernetes.io/change-cause: Updated-image-to-nginx:1.0.1
+    kubernetes.io/change-cause: Updated-image-to-nginx:1.0.2
 
 spec:
   replicas: 3
@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: naveenrajoli/deployment:1.0.1
+        image: naveenrajoli/deployment:1.0.2
         ports:
         - containerPort: 80
 ---

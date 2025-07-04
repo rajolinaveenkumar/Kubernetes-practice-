@@ -9,8 +9,9 @@ metadata:
 spec:
   replicas: 3
   selector:
-    component: web
-    project: expense
+    matchLabels:
+      component: web
+      project: expense
   template:
     metadata:
       name: replica-pod

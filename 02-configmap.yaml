@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  namespace: prod-ns
   name: my-configmap 
 
 data:

@@ -1,6 +1,6 @@
 apiVersion: v1
-kind: Namespce
+kind: Namesapce
 metadata:
   name: prod-ns
   labels:
-    purpose: "Namespce created for new prod environmet"
+    purpose: "Namesapce created for new prod environmet"

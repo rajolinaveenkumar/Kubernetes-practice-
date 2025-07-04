@@ -18,16 +18,16 @@ spec:
     - containerPort: 80
     envFrom:
     - configMapRef:
-      name: my-configmap
+        name: my-configmap
     - secretRef:
-      name: my-secrets
+        name: my-secrets
 
   - name: c2
     image: alamalinux:9
     command: ["sleep", "200"]
     envFrom:
     - secretRef:
-      name: my-secrets
+        name: my-secrets
 
   resources:
     requests:

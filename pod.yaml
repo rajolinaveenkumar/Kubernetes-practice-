@@ -17,7 +17,7 @@ spec:
     ports:
     - containerPort: 80
     envFrom:
-    - configMap:
+    - configMapRef:
       name: my-configmap
     - secretRef:
       name: my-secrets
@@ -36,5 +36,3 @@ spec:
     limit:
       cpu: "120Mi"
       memory: "120m"
-
----

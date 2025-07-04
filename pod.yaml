@@ -23,7 +23,7 @@ spec:
         name: my-secrets
 
   - name: c2
-    image: alamalinux:9
+    image: almalinux:9
     command: ["sleep", "200"]
     envFrom:
     - secretRef:

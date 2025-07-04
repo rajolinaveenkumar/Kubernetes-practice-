@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: prod-ns
   labels:
-    purpose: "Namesapce created for new prod environmet"
+    purpose: "Namesapce-created-for-new-prod-environmet"

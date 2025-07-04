@@ -30,9 +30,9 @@ spec:
       name: my-secrets
 
   resources:
-    request:
+    requests:
       cpu: "60Mi"
       memory: "100m"
-    limit:
+    limits:
       cpu: "120Mi"
       memory: "120m"

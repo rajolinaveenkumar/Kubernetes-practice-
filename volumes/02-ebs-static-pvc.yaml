@@ -26,7 +26,7 @@ spec:
     matchLabels:
       project: expense
       environmet: dev 
-  templates:
+  template:
     metadata:
       name: my-pod
       labels: 

@@ -27,7 +27,7 @@ spec:
       project: expense
       component: api 
       environmet: prod
-  tempalte:
+  template:
     metadata:
       name: ebs-dynamic-pod
       labels:

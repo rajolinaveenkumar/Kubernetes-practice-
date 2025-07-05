@@ -37,7 +37,7 @@ spec:
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
-          cliamName: ebs-static-pvc
+          claimName: ebs-static-pvc
       containers:
       - name: nginx
         image: nginx

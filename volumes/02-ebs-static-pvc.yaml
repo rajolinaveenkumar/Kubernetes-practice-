@@ -1,9 +1,9 @@
 apiVersion: v1
-kind: PersistentVolumeClime
+kind: PersistentVolumeClaim
 metadata:
-	name: ebs-static-pvc
+  name: ebs-static-pvc
 spec:
-  storageClassName: manual
+  storageClassName: ""
   volumeName: ebs-static-pv 		
   accessModes:
     - ReadWriteOnce

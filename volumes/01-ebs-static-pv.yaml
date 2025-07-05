@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolume
-metadata::
+metadata:
   name: ebs-static-pv 
 spec:
   accessModes:
     - ReadWriteOnce
-  capicity:
+  capacity:
     storage: 15Gi
   csi:
     driver: ebs.csi.aws.com

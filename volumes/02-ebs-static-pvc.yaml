@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: PersistentVolumeClime
+metadata:
+	name: ebs-static-pvc
+spec:
+  storageClassName: ""
+  volumeName: ebs-static-pv 		
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 15Gi
+
+---
+
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    project: expense
+    environmet: dev 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: expense
+      environmet: dev 
+  templates:
+    metadata:
+      name: my-pod
+      labels: 
+        project: expense
+        environmet: dev
+        service: lb-service
+    spec:
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClime:
+          cliamName: ebs-static-pvc
+      conatiners:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: persistent-storage
+          mountPath: /usr/share/nginx/html

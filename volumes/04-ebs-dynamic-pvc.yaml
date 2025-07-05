@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-dynamic-pvc
+spec:
+  reclaimPolicy: 
+    - ReadWriteOnce
+  storageClassName: "ebs-dynamic-sc"
+  resources:
+    requests:
+      storage: 20Gi
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ebs-dynamic-dep
+  labels:
+    project: expense
+    component: api 
+    environmet: prod  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: expense
+      component: api 
+      environmet: prod
+  tempalte:
+    metadata:
+      name: ebs-dynamic-pod
+      labels:
+        project: expense
+        component: api 
+        environmet: prod
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: ebs-dynamic-pvc
+      nodeSelector:
+        topology.kubernetes.io/zone: us-east-1a
+    spec:
+      containers:
+      - name: ebs-dynamic-pod
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: persistent-storage
+          mountPath: /usr/share/nginx/html
+
+---
+
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: ebs-dynamic-lb
+spec:
+  selector:
+    project: expense
+    component: api 
+    environmet: prod
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 32000
+

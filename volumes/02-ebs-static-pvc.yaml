@@ -3,7 +3,7 @@ kind: PersistentVolumeClime
 metadata:
 	name: ebs-static-pvc
 spec:
-  storageClassName: ""
+  storageClassName: manual
   volumeName: ebs-static-pv 		
   accessModes:
     - ReadWriteOnce

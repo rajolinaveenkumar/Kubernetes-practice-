@@ -34,13 +34,14 @@ spec:
         project: expense
         component: api 
         environmet: prod
+          
+    spec:
+      nodeSelector:
+        topology.kubernetes.io/zone: us-east-1a
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
-          claimName: ebs-dynamic-pvc
-      nodeSelector:
-        topology.kubernetes.io/zone: us-east-1a
-    spec:
+          claimName: ebs-dynamic-pvc  
       containers:
       - name: ebs-dynamic-pod
         image: nginx

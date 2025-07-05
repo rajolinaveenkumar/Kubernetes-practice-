@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-dynamic-pvc
 spec:
-  reclaimPolicy: 
+  accessModes: 
     - ReadWriteOnce
   storageClassName: "ebs-dynamic-sc"
   resources:

@@ -5,4 +5,4 @@ metadata:
 provisioner: ebs.csi.aws.com
 reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
-allowVolumeExpansion: true    # ✅ Optional, but useful for resizing EBS
+# allowVolumeExpansion: true    # ✅ Optional, but useful for resizing EBS

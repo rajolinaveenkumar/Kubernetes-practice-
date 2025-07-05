@@ -21,7 +21,7 @@ metadata:
     project: expense
     environmet: dev 
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       project: expense

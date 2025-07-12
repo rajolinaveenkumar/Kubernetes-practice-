@@ -1,0 +1,27 @@
+# role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: expense-project
+  name: my-role
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+
+---
+# Role binding 
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: my-rolebinding
+  namespace: expense-project
+subjects:
+- kind: group
+  name: expense-reader # this should match the group in aws-auth
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: my-role
+  apiGroup: rbac.authorization.k8s.io

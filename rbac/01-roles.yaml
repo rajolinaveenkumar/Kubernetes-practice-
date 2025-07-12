@@ -18,8 +18,8 @@ metadata:
   name: my-rolebinding
   namespace: expense-project
 subjects:
-- kind: Group
-  name: expense-reader # this should match the group in aws-auth
+- kind: User
+  name: naveenRBAC # this should match the group in aws-auth
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
